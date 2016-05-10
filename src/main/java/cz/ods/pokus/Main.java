@@ -4,7 +4,9 @@ package cz.ods.pokus;
 import org.jopendocument.dom.spreadsheet.Sheet;
 import org.jopendocument.dom.spreadsheet.SpreadSheet;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -15,19 +17,20 @@ public class Main {
 
 
     public static void main(String[] args) {
-        System.out.println("Hello! Main up and running!");
-
-        // Load the file.
-        File file = new File(Main.class.getClassLoader().getResource("tableFile.ods").getFile());
-        String term = "ladi";
-
         try{
+            // Load the file.
+            File file = new File(Main.class.getClassLoader().getResource("tableFile.ods").getFile());
+
+            //read input
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.print("Enter term: ");
+            String term = reader.readLine();
+
             SearchInSpreadSheet spreadSheet = new SearchInSpreadSheet(SpreadSheet.createFromFile(file), term);
-            for (String[] result : spreadSheet.getResults() ) {
-                for (String item: result) {
-                    System.out.print(item + ", ");
-                }
-                System.out.println(" ");
+            //print results
+            for (Result result : spreadSheet.getResults() ) {
+                System.out.println("Sheet: " + result.getSheetName());
+                result.printRows();
             }
 
         } catch(Throwable ex){
