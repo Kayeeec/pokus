@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+import java.lang.NullPointerException;
 /**
  * Created by karbo on 3.5.16.
  */
@@ -30,7 +30,7 @@ public class Main {
             //print results
             for (Result result : spreadSheet.getResults() ) {
                 System.out.println("Sheet: " + result.getSheetName());
-                result.printRows();
+                result.printRows(); //TODO - when no rows found (rows are null)
             }
 
         } catch(Throwable ex){

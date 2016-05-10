@@ -3,7 +3,8 @@ package cz.ods.pokus;
 import java.util.ArrayList;
 
 /**
- * Created by karbo on 10.5.16.
+ * Created by Karolína Božková on 10.5.16.
+ * Result class stores name of a sheet and rows resulting from search.
  */
 public class Result {
     private String sheetName;

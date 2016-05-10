@@ -57,7 +57,7 @@ public class SearchInSpreadSheet {
     public SearchInSpreadSheet(SpreadSheet spreadSheet, String term) {
         int numSheets = spreadSheet.getSheetCount();
 
-        //print all sheets
+        //print all sheets - not needed
         for (int i = 0; i < numSheets; i++) {
             printSheet(spreadSheet.getSheet(i));
             System.out.println("---");
